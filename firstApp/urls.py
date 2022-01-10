@@ -12,4 +12,6 @@ urlpatterns = [
     path('medicalsummary',views.getAllMedicalSummary,name='getAllMedicalSummary'),
     path('medicalsummary/<int:pk>',views.getOneMedicalSummary,name='getOneMedicalSummary'),
     path('addOneRecord',views.addOneRecord,name='addOneRecord'),
+    path('updateRecord/<int:pk>',views.updateRecord,name='updateRecord'),
+    path('deleteRecord/<int:pk>',views.deleteRecord,name='deleteRecord'),
 ]

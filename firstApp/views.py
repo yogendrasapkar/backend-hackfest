@@ -64,6 +64,7 @@ def getOneMedicalSummary(request, pk):
         serialize = medicalsummarySerializer(medicalRecord, many=False)
         return Response(serialize.data)
 
+# Add one record
 @api_view(['POST'])
 def addOneRecord(request):
     if request.method == 'POST':
@@ -73,13 +74,31 @@ def addOneRecord(request):
             return Response(serialize.data)
         return Response(serialize.errors)
 
+# Update a record based on id
+@api_view(['POST'])#Needs fix
+def updateRecord(request, pk):
+    if request.method == 'POST':
+        medicalRecord = medicalsummary.objects.get(id=pk)
+        serialize = medicalsummarySerializer(instance=medicalRecord, data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+
+# Delete a record
+@api_view(['DELETE'])
+def deleteRecord(request, pk):
+    if request.method == 'DELETE':
+        medicalRecord = medicalsummary.objects.get(id=pk)
+        medicalRecord.delete()
+        return Response("Record deleted successfully")
+
 # class medicalsummaryView(APIView):
 #     def get(self, request):
 #         player1 = medicalsummary.objects.all()
 #         serialize = medicalsummarySerializer(player1, many=True)
 #         return Response(serialize.data)
 
-#     def get(self, request, pk):
+#     def get(self, request, pk, format=None):
 #         player1 = medicalsummary.objects.get(id=pk)
 #         serialize = medicalsummarySerializer(player1, many=False)
 #         return Response(serialize.data)
@@ -90,3 +109,4 @@ def addOneRecord(request):
 #             serialize.save()
 #             return Response(serialize.data)
 #         return Response(serialize.errors)
+
