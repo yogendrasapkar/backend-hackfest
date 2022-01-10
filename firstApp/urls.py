@@ -7,5 +7,5 @@ urlpatterns = [
     path('signin', views.signin, name='signin'),
     path('home',views.home,name='home'),
     path('logout',views.userLogout,name='logout'),
-    path('api/', views.medicalsummaryView.as_view())
+    path('api/medicalsummary', views.medicalsummaryView.as_view())
 ]
