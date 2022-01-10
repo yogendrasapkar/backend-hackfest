@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 #for apis
 from .serializers import medicalsummarySerializer
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import medicalsummary
 
@@ -45,15 +46,47 @@ def userLogout(request):
     logout(request)
     return HttpResponseRedirect('/signin')
 
-class medicalsummaryView(APIView):
-    def get(self, request):
-        player1 = medicalsummary.objects.all()
-        serialize = medicalsummarySerializer(player1, many=True)
+
+# Medical summary api's
+# Get all the records
+@api_view(['GET'])
+def getAllMedicalSummary(request):
+    if request.method == 'GET':
+        medicalRecord = medicalsummary.objects.all()
+        serialize = medicalsummarySerializer(medicalRecord, many=True)
         return Response(serialize.data)
-    
-    def post(self, request):
+
+# Get only one record based on id
+@api_view(['GET'])
+def getOneMedicalSummary(request, pk):
+    if request.method == 'GET':
+        medicalRecord = medicalsummary.objects.get(id=pk)
+        serialize = medicalsummarySerializer(medicalRecord, many=False)
+        return Response(serialize.data)
+
+@api_view(['POST'])
+def addOneRecord(request):
+    if request.method == 'POST':
         serialize = medicalsummarySerializer(data=request.data)
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
         return Response(serialize.errors)
+
+# class medicalsummaryView(APIView):
+#     def get(self, request):
+#         player1 = medicalsummary.objects.all()
+#         serialize = medicalsummarySerializer(player1, many=True)
+#         return Response(serialize.data)
+
+#     def get(self, request, pk):
+#         player1 = medicalsummary.objects.get(id=pk)
+#         serialize = medicalsummarySerializer(player1, many=False)
+#         return Response(serialize.data)
+    
+#     def post(self, request):
+#         serialize = medicalsummarySerializer(data=request.data)
+#         if(serialize.is_valid()):
+#             serialize.save()
+#             return Response(serialize.data)
+#         return Response(serialize.errors)
