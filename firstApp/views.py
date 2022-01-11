@@ -6,11 +6,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 
 #for apis
-from .serializers import medicalsummarySerializer
+from .serializers import medicalsummarySerializer,dignosticsresultSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import medicalsummary
+from .models import medicalsummary,dignosticsresult
 
 # Create your views here.
 def index(request):
@@ -110,3 +110,50 @@ def deleteRecord(request, pk):
 #             return Response(serialize.data)
 #         return Response(serialize.errors)
 
+
+
+# diagnostics-result api
+# view all diagnostics records
+@api_view(['GET'])
+def getAllDiagnosticResults(request):
+    if request.method == 'GET':
+        diagnosticRecord =dignosticsresult.objects.all()
+        serialize = dignosticsresultSerializer(diagnosticRecord, many=True)
+        return Response(serialize.data)
+
+#view one diagnostic records
+@api_view(['GET'])
+def getOneDiagnosticResults(request,pk):
+    if request.method == 'GET':
+        diagnosticRecord =dignosticsresult.objects.get(id=pk)
+        serialize = dignosticsresultSerializer(diagnosticRecord, many=False)
+        return Response(serialize.data)
+
+# Add one diagnostic-result 
+@api_view(['POST'])
+def addOneDiagnosticRecord(request):
+    if request.method == 'POST':
+        serialize = dignosticsresultSerializer(data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+# Update Diagnostic result record
+@api_view(['POST'])
+def updateDiagnosticRecord(request, pk):
+    if request.method == 'POST':
+        diagnosticRecord = dignosticsresult.objects.get(id=pk)
+        serialize = dignosticsresultSerializer(instance= diagnosticRecord , data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+
+
+# Delete a Diagnostic Result record
+@api_view(['DELETE'])
+def deleteDiagnosticRecord(request, pk):
+    if request.method == 'DELETE':
+        dignosticRecord = dignosticsresult.objects.get(id=pk)
+        dignosticRecord.delete()
+        return Response(" Dignostics Result Record deleted successfully")

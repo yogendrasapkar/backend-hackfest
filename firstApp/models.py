@@ -16,3 +16,13 @@ class medicalsummary(models.Model):
 
     def __str__(self):
         return self.form
+
+# create Diagnostics-result model
+class dignosticsresult(models.Model):
+    test_name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    test_result = models.CharField(max_length=50)
+    patient_id = models.IntegerField()
+
+    def __str__(self):
+        return self.test_name
