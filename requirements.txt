@@ -111,7 +111,7 @@ simplejson==3.16.0
 six==1.14.0
 sniffio==1.2.0
 sortedcontainers==2.4.0
-sos==4.1
+sos==0.22.5
 SQLAlchemy==1.4.27
 sqlparse==0.4.2
 ssh-import-id==5.10
