@@ -75,7 +75,7 @@ def addOneRecord(request):
         return Response(serialize.errors)
 
 # Update a record based on id
-@api_view(['POST'])#Needs fix
+@api_view(['POST'])
 def updateRecord(request, pk):
     if request.method == 'POST':
         medicalRecord = medicalsummary.objects.get(id=pk)
