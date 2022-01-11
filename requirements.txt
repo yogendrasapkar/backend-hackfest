@@ -120,7 +120,7 @@ termcolor==1.1.0
 texttable==1.6.4
 trio==0.19.0
 trio-websocket==0.9.2
-ubuntu-advantage-tools==27.4
+
 ubuntu-drivers-common==0.0.0
 ufw==0.36
 unattended-upgrades==0.1
