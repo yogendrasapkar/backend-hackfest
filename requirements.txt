@@ -1,5 +1,5 @@
 
-python -m pip install SomePackage
+
 asgiref==3.4.1
 async-generator==1.10
 attrs==21.2.0
