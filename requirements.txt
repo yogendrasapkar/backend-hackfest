@@ -10,7 +10,7 @@ bidict==0.21.4
 blessed==1.19.0
 blinker==1.4
 botocore==1.21.65
-Brlapi==0.7.0
+
 cached-property==1.5.2
 cement==2.8.2
 certifi==2019.11.28
