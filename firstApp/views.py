@@ -4,13 +4,14 @@ from django.http.response import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
+from rest_framework.serializers import Serializer
 
 #for apis
-from .serializers import medicalsummarySerializer
+from .serializers import medicalsummarySerializer,problemListSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import medicalsummary
+from .models import medicalsummary,problemList
 
 # Create your views here.
 def index(request):
@@ -109,4 +110,53 @@ def deleteRecord(request, pk):
 #             serialize.save()
 #             return Response(serialize.data)
 #         return Response(serialize.errors)
+
+
+# problemList apis
+# get all records from problem list
+@api_view(['GET'])
+def getProblemList(request):
+    if request.method=="GET":
+        probListRecord = problemList.objects.all()
+        serialize = problemListSerializer(probListRecord, many=True)
+        return Response(serialize.data)
+
+
+# get a record from problem list based on specific id
+@api_view(['GET'])
+def getOneProblemList(request,pk):
+    if request.method == "GET":
+        probListRecord = problemList.objects.get(id=pk)
+        serialize= problemListSerializer(probListRecord, many=False)
+        return Response(serialize.data)
+
+# add a record in problem list
+@api_view(['POST'])
+def addOneToProblemList(request):
+    if request.method=="POST":
+        serialize = problemListSerializer(data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+# update a record in problem list based on specific id
+@api_view(['POST'])
+def updateProblemList(request,pk):
+    if request.method=="POST":
+        probListRecord = problemList.objects.get(id=pk) 
+        serialize = problemListSerializer(instance=probListRecord,data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+
+# delete a record from problem list based on specific id
+@api_view(['DELETE'])
+def deleteProblemList(request,pk):
+    if request.method=="DELETE":
+        probListRecord = problemList.objects.get(id=pk)
+        probListRecord.delete()
+        return Response("Record deleted from Problem List")
+
+
 
