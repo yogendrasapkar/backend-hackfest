@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import medicalsummary,problemList ,dignosticsresults ,pasthistory, planCare
+from .models import medicalsummary,problemList ,dignosticsresults ,pasthistory, planCare, prescription
 
 class medicalsummarySerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,4 +31,11 @@ class pasthistorySerializer(serializers.ModelSerializer):
 class planCareSerializer(serializers.ModelSerializer):
     class Meta:
         model = planCare
+        fields = '__all__'
+
+
+# create prescription
+class prescriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = prescription
         fields = '__all__'
