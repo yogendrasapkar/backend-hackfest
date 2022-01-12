@@ -8,11 +8,11 @@ from rest_framework import serializers
 from rest_framework.serializers import Serializer
 
 #for apis
-from .serializers import medicalsummarySerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer
+from .serializers import medicalsummarySerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer, prescriptionSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare
+from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare, prescription
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -302,3 +302,40 @@ def deletePlanCare(request,pk):
         planCareRecord.delete()
         return Response("The record has been deleted")
 
+
+# Prescription apis
+# get all records of a patient from prescription
+@api_view(['GET'])
+def getPrescription(request,fk):
+    if request.method=="GET":
+        prescriptionRecord = prescription.objects.filter(patient_id=fk)
+        serialize = prescriptionSerializer(prescriptionRecord,many=True)
+        return Response(serialize.data)
+
+# get one record from prescription
+@api_view(['GET'])
+def getOnePrescription(request,pk):
+    if request.method == "GET":
+        prescriptionRecord = prescription.objects.get(id=pk)
+        serialize = prescriptionSerializer(prescriptionRecord,many=False)
+        return Response(serialize.data)
+
+# add a record to prescription
+@api_view(['POST'])
+def addOnePrescription(request):
+    if request.method == "POST":
+        serialize = prescriptionSerializer(data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+# update a record in prescription based on specific id
+@api_view(['POST'])
+def updatePrescription(request,pk):
+    if request.method == "POST":
+        prescriptionRecord = prescription.objects.get(id=pk)
+        serialize = prescriptionSerializer(instance=prescriptionRecord,data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)

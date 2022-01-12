@@ -31,17 +31,23 @@ urlpatterns = [
     path('updateDiagnosticRecord/<int:pk>',views.updateDiagnosticRecord,name='updateDiagnosticsRecord'),
     path('deleteDiagnosticRecord/<int:pk>',views.deleteDiagnosticRecord,name='deleteDiagnosticsRecord'),
     
-    #Past History illnesses path
+    # Past History illnesses path
     path('allPastHistoryOfIllness',views.getAllPastHistoryIllnessResult,name='getAllPastHistoryOfIllness'),
     path('pastHistoryOfIllness/<int:pk>',views.getOnePastHistoryResults,name='getOnePastHistoryOfIllness'),
     path('addOneIllnessRecord',views.addOneIllnessRecord,name='addOneIllnessRecord'),
     path('updateIllnessRecord/<int:pk>',views.updateIllnessRecord,name='updateIllnessRecord'),
     path('deleteIllnessRecord/<int:pk>',views.deleteIllnessRecord,name='deleteIllnessRecord'),
 
-    #Plan care paths
+    # Plan care paths
     path('planCare',views.getPlanCare,name='getPlanCare'),
     path('planCare/<int:pk>',views.getOnePlanCare,name='getOnePlanCare'),
     path('addOnePlanCare',views.addOneToPlanCare,name='addOneToPlanCare'),
     path('updatePlanCare/<int:pk>',views.updatePlanCare,name='updatePlanCare'),
     path('deletePlanCare/<int:pk>',views.deletePlanCare,name='deletePlanCare'),
+
+    # prescription paths
+    path('prescription/<int:fk>',views.getPrescription,name='getPrescription'),
+    path('onePrescription/<int:pk>',views.getOnePrescription,name='getOnePrescription'),
+    path('addOnePrescription',views.addOnePrescription,name='addOnePrescription'),
+    path('updatePrescription/<int:pk>',views.updatePrescription,name='updatePrescription'),
 ]

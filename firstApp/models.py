@@ -69,7 +69,7 @@ class planCare(models.Model):
 
 
 # create prescription model
-class prescription(models,Model):
+class prescription(models.Model):
     medication_item = models.CharField(max_length=100)
     substance_name = models.CharField(max_length=100)
     form = models.CharField(max_length=100)
