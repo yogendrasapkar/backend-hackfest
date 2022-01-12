@@ -37,4 +37,11 @@ urlpatterns = [
     path('addOneIllnessRecord',views.addOneIllnessRecord,name='addOneIllnessRecord'),
     path('updateIllnessRecord/<int:pk>',views.updateIllnessRecord,name='updateIllnessRecord'),
     path('deleteIllnessRecord/<int:pk>',views.deleteIllnessRecord,name='deleteIllnessRecord'),
+
+    #Plan care paths
+    path('planCare',views.getPlanCare,name='getPlanCare'),
+    path('planCare/<int:pk>',views.getOnePlanCare,name='getOnePlanCare'),
+    path('addOnePlanCare',views.addOneToPlanCare,name='addOneToPlanCare'),
+    path('updatePlanCare/<int:pk>',views.updatePlanCare,name='updatePlanCare'),
+    path('deletePlanCare/<int:pk>',views.deletePlanCare,name='deletePlanCare'),
 ]

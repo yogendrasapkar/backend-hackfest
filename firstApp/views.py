@@ -4,15 +4,15 @@ from django.http.response import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
+from rest_framework import serializers
 from rest_framework.serializers import Serializer
 
 #for apis
-from .serializers import medicalsummarySerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer
+from .serializers import medicalsummarySerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import medicalsummary,problemList ,dignosticsresults,pasthistory
-
+from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -256,4 +256,49 @@ def deleteIllnessRecord(request, pk):
         return Response(" Past History Illness Record deleted successfully")
 
 
+
+# Plan care apis
+# get all records from plan care
+@api_view(['GET'])
+def getPlanCare(request):
+    if request.method=="GET":
+        planCareRecord=planCare.objects.all()
+        serialize = planCareSerializer(planCareRecord,many=True)
+        return Response(serialize.data)
+
+# get a record from plan care based on specific id
+@api_view(['GET'])
+def getOnePlanCare(request,pk):
+    if request.method == "GET":
+        planCareRecord = planCare.objects.get(id=pk)
+        serialize = planCareSerializer(planCareRecord,many=False)
+        return Response(serialize.data)
+
+# add a record to plan care
+@api_view(['POST'])
+def addOneToPlanCare(request):
+    if request.method == "POST":
+        serialize = planCareSerializer(data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+# update a record in plan care based on specific id
+@api_view(['POST'])
+def updatePlanCare(request,pk):
+    if request.method == "POST":
+        planCareRecord = planCare.objects.get(id=pk)
+        serialize = planCareSerializer(instance=planCareRecord,data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+
+# delete a record from plan care based on specific id
+@api_view(['DELETE'])
+def deletePlanCare(request,pk):
+    if request.method == 'DELETE':
+        planCareRecord = planCare.objects.get(id=pk)
+        planCareRecord.delete()
+        return Response("The record has been deleted")
 
