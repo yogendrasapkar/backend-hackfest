@@ -57,6 +57,7 @@ class pasthistory(models.Model):
         return self.patient_id
 
 
+# create planCare model
 class planCare(models.Model):
     carePlanName = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
@@ -65,3 +66,19 @@ class planCare(models.Model):
 
     def __str__(self):
         return self.patient_id
+
+
+# create prescription model
+class prescription(models,Model):
+    medication_item = models.CharField(max_length=100)
+    substance_name = models.CharField(max_length=100)
+    form = models.CharField(max_length=100)
+    strength = models.FloatField()
+    strength_unit = models.CharField(max_length=100)
+    route = models.CharField(max_length=100)
+    dosage_instructions = models.CharField(max_length=100)
+    duration = models.CharField(max_length=100)
+    max_amount = models.FloatField()
+    max_amount_dose_unit = models.CharField(max_length=10)
+    comments = models.CharField(max_length=100)
+    patient_id = models.IntegerField()
