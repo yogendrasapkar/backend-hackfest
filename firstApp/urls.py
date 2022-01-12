@@ -20,4 +20,18 @@ urlpatterns = [
     path('addOneProblemList',views.addOneToProblemList,name='addOneToProblemList'),
     path('updateProblemList/<int:pk>',views.updateProblemList,name='updateProblemList'),
     path('deleteProblemList/<int:pk>',views.deleteProblemList,name='deleteProblemList'),
+
+
+    # Diagnostic-Result path 
+    path('diagnosticResult',views.getAllDiagnosticResults,name='getAllDiagnosticResultRecords'),
+    path('diagnosticResult/<int:pk>',views.getOneDiagnosticResults,name='getAllDiagnosticResultRecords'),
+    path('addOneDignosticResult',views.addOneDiagnosticRecord,name='AddOneDiagnosticRecord'),
+    path('updateDiagnosticRecord/<int:pk>',views.updateDiagnosticRecord,name='updateDiagnosticsRecord'),
+    path('deleteDiagnosticRecord/<int:pk>',views.deleteDiagnosticRecord,name='deleteDiagnosticsRecord'),
+    #Past History illnesses path
+     path('allPastHistoryOfIllness',views.getAllPastHistoryIllnessResult,name='getAllPastHistoryOfIllness'),
+     path('pastHistoryOfIllness/<int:pk>',views.getOnePastHistoryResults,name='getOnePastHistoryOfIllness'),
+     path('addOneIllnessRecord',views.addOneIllnessRecord,name='addOneIllnessRecord'),
+      path('updateIllnessRecord/<int:pk>',views.updateIllnessRecord,name='updateIllnessRecord'),
+      path('deleteIllnessRecord/<int:pk>',views.deleteIllnessRecord,name='deleteIllnessRecord'),
 ]

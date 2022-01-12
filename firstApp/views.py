@@ -7,11 +7,11 @@ from django.contrib.auth import authenticate,login,logout
 from rest_framework.serializers import Serializer
 
 #for apis
-from .serializers import medicalsummarySerializer,problemListSerializer
+from .serializers import medicalsummarySerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import medicalsummary,problemList
+from .models import medicalsummary,problemList ,dignosticsresults,pasthistory
 
 # Create your views here.
 def index(request):
@@ -157,6 +157,103 @@ def deleteProblemList(request,pk):
         probListRecord = problemList.objects.get(id=pk)
         probListRecord.delete()
         return Response("Record deleted from Problem List")
+
+
+
+# diagnostics-result api
+# view all diagnostics records
+@api_view(['GET'])
+def getAllDiagnosticResults(request):
+    if request.method == 'GET':
+        diagnosticRecord =dignosticsresults.objects.all()
+        serialize = dignosticsresultSerializer(diagnosticRecord, many=True)
+        return Response(serialize.data)
+
+#view one diagnostic records
+@api_view(['GET'])
+def getOneDiagnosticResults(request,pk):
+    if request.method == 'GET':
+        diagnosticRecord =dignosticsresults.objects.get(id=pk)
+        serialize = dignosticsresultSerializer(diagnosticRecord, many=False)
+        return Response(serialize.data)
+
+# Add one diagnostic-result 
+@api_view(['POST'])
+def addOneDiagnosticRecord(request):
+    if request.method == 'POST':
+        serialize = dignosticsresultSerializer(data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+# Update Diagnostic result record
+@api_view(['POST'])
+def updateDiagnosticRecord(request, pk):
+    if request.method == 'POST':
+        diagnosticRecord = dignosticsresults.objects.get(id=pk)
+        serialize = dignosticsresultSerializer(instance= diagnosticRecord , data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+
+
+# Delete a Diagnostic Result record
+@api_view(['DELETE'])
+def deleteDiagnosticRecord(request, pk):
+    if request.method == 'DELETE':
+        dignosticRecord = dignosticsresults.objects.get(id=pk)
+        dignosticRecord.delete()
+        return Response(" Dignostics Result Record deleted successfully")
+
+
+# Past_History_of_illness api
+
+# View all Patient Past_history_illnesses 
+@api_view(['GET'])
+def getAllPastHistoryIllnessResult(request):
+    if request.method == 'GET':
+        pastRecord =pasthistory.objects.all()
+        serialize = pasthistorySerializer(pastRecord, many=True)
+        return Response(serialize.data)
+
+#view one  Patient Past_history_illnesses record
+@api_view(['GET'])
+def getOnePastHistoryResults(request,pk):
+    if request.method == 'GET':
+        pastRecord =pasthistory.objects.get(id=pk)
+        serialize = pasthistorySerializer(pastRecord, many=False)
+        return Response(serialize.data)
+
+# Add one Patient Past_history_illnesses record
+@api_view(['POST'])
+def addOneIllnessRecord(request):
+    if request.method == 'POST':
+        serialize = pasthistorySerializer(data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+
+# Update Patient Past_history_illnesses record
+@api_view(['POST'])
+def updateIllnessRecord(request, pk):
+    if request.method == 'POST':
+        pastRecord = pasthistory.objects.get(id=pk)
+        serialize = pasthistorySerializer(instance= pastRecord , data=request.data)
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+
+
+# Delete a Patient Past_history_illnesses record
+@api_view(['DELETE'])
+def deleteIllnessRecord(request, pk):
+    if request.method == 'DELETE':
+        pastRecord = pasthistory.objects.get(id=pk)
+        pastRecord.delete()
+        return Response(" Past History Illness Record deleted successfully")
 
 
 
