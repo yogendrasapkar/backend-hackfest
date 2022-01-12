@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+# create medical-summary model
 class medicalsummary(models.Model):
     medication_item = models.CharField(max_length=50)
     form = models.CharField(max_length=50)
@@ -18,6 +19,7 @@ class medicalsummary(models.Model):
         return self.form
 
 
+# create problem-list model
 class problemList(models.Model):
     diagnosisName = models.CharField(max_length=100)
     bodySite = models.CharField(max_length=100)

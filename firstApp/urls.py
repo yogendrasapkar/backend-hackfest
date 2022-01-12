@@ -9,12 +9,15 @@ urlpatterns = [
     path('logout',views.userLogout,name='logout'),
     # path('api/medicalsummary', views.medicalsummaryView.as_view()),
     # path('api/medicalsummary/<int:pk>', views.medicalsummaryView.as_view()),
+
+    # Medical-Summary path
     path('medicalSummary',views.getAllMedicalSummary,name='getAllMedicalSummary'),
     path('medicalSummary/<int:pk>',views.getOneMedicalSummary,name='getOneMedicalSummary'),
     path('addOneRecord',views.addOneRecord,name='addOneRecord'),
     path('updateRecord/<int:pk>',views.updateRecord,name='updateRecord'),
     path('deleteRecord/<int:pk>',views.deleteRecord,name='deleteRecord'),
 
+    # Problem-List path
     path('problemList',views.getProblemList,name='getProblemList'),
     path('problemList/<int:pk>',views.getOneProblemList,name='getOneProblemList'),
     path('addOneProblemList',views.addOneToProblemList,name='addOneToProblemList'),
