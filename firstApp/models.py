@@ -55,3 +55,13 @@ class pasthistory(models.Model):
 
     def __str__(self):
         return self.patient_id
+
+
+class planCare(models.Model):
+    carePlanName = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    reason = models.CharField(max_length=100)
+    patient_id = models.IntegerField()
+
+    def __str__(self):
+        return self.patient_id
