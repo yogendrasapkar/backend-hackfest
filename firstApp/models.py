@@ -19,17 +19,15 @@ class medicalsummary(models.Model):
 
 
 class problemList(models.Model):
-
     diagnosisName = models.CharField(max_length=100)
     bodySite = models.CharField(max_length=100)
     dateOfOnset = models.DateField()
     severity = models.CharField(max_length=100)
     diagnosticCertainity = models.CharField(max_length=100)
-    patient_id =models.IntegerField()
+    patient_id = models.IntegerField()
 
     def __str__(self):
         return self.diagnosisName
-
 
 
 # create Diagnostics-result model
@@ -41,6 +39,7 @@ class dignosticsresults(models.Model):
 
     def __str__(self):
         return self.patient_id
+
 
 # create Past History of illnesses model
 class pasthistory(models.Model):
