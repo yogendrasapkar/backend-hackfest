@@ -25,4 +25,16 @@ class dignosticsresult(models.Model):
     patient_id = models.IntegerField()
 
     def __str__(self):
-        return self.test_name
+        return self.patient_id
+# create Past History of illnesses model
+class pasthistory(models.Model):
+    diagnosis_name = models.CharField(max_length=50)
+    body_site = models.CharField(max_length=100)
+    date_of_onsite = models.DateField()
+    severity = models.CharField(max_length=100)
+    Problem_Qualifier = models.CharField(max_length=100)
+    diagnostic_certainty = models.CharField(max_length=100)
+    patient_id = models.IntegerField()
+
+    def __str__(self):
+        return self.patient_id
