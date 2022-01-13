@@ -14,14 +14,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 # from rest_framework.permissions import IsAuthenticated
 from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare, prescription
-# from rest_framework import viewsets
-# from .serializers import userSerializers
-# from django.contrib.auth.models import User
+from rest_framework import viewsets
+from .serializers import userSerializers
+from django.contrib.auth.models import User
 
 # Create your views here.
-# class userviewsets(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = userSerializers
+class userviewsets(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = userSerializers
 
 def index(request):
     return render(request, 'index.html')
@@ -58,8 +58,9 @@ def signin(request):
         # pd = f.cleaned_data['password']
         # un = form.cleaned_data.get("username")
         # pd = form.cleaned_data.get("password")
-        un=json.loads(request.POST['username'])
-        pd=json.loads(request.POST['password'])
+        data=json.loads(request.raw_post_data)
+        un=data['username']
+        pd=data['password']
         user = authenticate(username = un, password = pd)
         if user is not None:
             login(request,user)
