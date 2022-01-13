@@ -1,6 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+is_doctor = models.BooleanField(default=False)
+is_doctor.contribute_to_class(User, 'is_doctor')
+
 # create medical-summary model
 class medicalsummary(models.Model):
     medication_item = models.CharField(max_length=50)
@@ -8,7 +12,7 @@ class medicalsummary(models.Model):
     strength_concentration = models.FloatField()
     presentation = models.CharField(max_length=50)
     manufacturer = models.CharField(max_length=50)
-    expire = models.DateField()
+    expire = models.CharField(max_length=100)
     batch_id_timing = models.CharField(max_length=50)
     amount = models.FloatField()
     amount_unit = models.CharField(max_length=50)

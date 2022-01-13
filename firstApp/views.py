@@ -12,8 +12,17 @@ from .serializers import medicalsummarySerializer,problemListSerializer,dignosti
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare, prescription
+from rest_framework import viewsets
+from .serializers import userSerializers
+from django.contrib.auth.models import User
+
 # Create your views here.
+class userviewsets(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = userSerializers
+
 def index(request):
     return render(request, 'index.html')
 
@@ -25,6 +34,21 @@ def register(request):
     else:
         f = UserCreationForm()
     return render(request, "register.html", {"form": f})
+
+
+# def signin(request):
+#     if request.method == "POST":
+#         url = request.get('api-token-auth/ username="Himach" password="Hello@123"')
+#         print(url)
+#         return HttpResponseRedirect('/home')
+        # f = AuthenticationForm(request=request, data=request.POST)
+        # if f.is_valid():
+        #     un = f.cleaned_data['username']
+        #     pd = f.cleaned_data['password']
+        #     user = authenticate(username = un, password = pd)
+        #     if user is not None:
+        #         login(request,user)
+        #         return HttpResponseRedirect('/home')
 
 def signin(request):
     if request.method == "POST":
