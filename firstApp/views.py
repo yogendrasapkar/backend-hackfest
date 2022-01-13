@@ -17,6 +17,7 @@ from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, p
 from rest_framework import viewsets
 from .serializers import userSerializers
 from django.contrib.auth.models import User
+from rest_framework.authentication import TokenAuthentication
 
 # Create your views here.
 class userviewsets(viewsets.ModelViewSet):
@@ -91,6 +92,8 @@ def getAllMedicalSummary(request):
     if request.method == 'GET':
         medicalRecord = medicalsummary.objects.all()
         serialize = medicalsummarySerializer(medicalRecord, many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # Get only one record based on id
@@ -99,6 +102,8 @@ def getOneMedicalSummary(request, pk):
     if request.method == 'GET':
         medicalRecord = medicalsummary.objects.get(id=pk)
         serialize = medicalsummarySerializer(medicalRecord, many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # Add one record
