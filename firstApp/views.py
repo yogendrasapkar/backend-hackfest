@@ -56,8 +56,10 @@ def signin(request):
         # if f.is_valid():
         # un = f.cleaned_data['username']
         # pd = f.cleaned_data['password']
-        un = form.cleaned_data.get("username")
-        pd = form.cleaned_data.get("password")
+        # un = form.cleaned_data.get("username")
+        # pd = form.cleaned_data.get("password")
+        un=json.loads(request.POST['username'])
+        pd=json.loads(request.POST['password'])
         user = authenticate(username = un, password = pd)
         if user is not None:
             login(request,user)
