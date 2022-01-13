@@ -52,17 +52,19 @@ def register(request):
 
 def signin(request):
     if request.method == "POST":
-        f = AuthenticationForm(request=request, data=request.POST)
-        if f.is_valid():
-            un = f.cleaned_data['username']
-            pd = f.cleaned_data['password']
-            user = authenticate(username = un, password = pd)
-            if user is not None:
-                login(request,user)
-                return HttpResponseRedirect('/home')
-    else:
-        f = AuthenticationForm()
-    return render(request, 'signin.html', {'form': f})
+        # f = AuthenticationForm(request=request, data=request.POST)
+        # if f.is_valid():
+        # un = f.cleaned_data['username']
+        # pd = f.cleaned_data['password']
+        un = form.cleaned_data.get("username")
+        pd = form.cleaned_data.get("password")
+        user = authenticate(username = un, password = pd)
+        if user is not None:
+            login(request,user)
+            return HttpResponseRedirect('/home')
+    # else:
+    #     f = AuthenticationForm()
+    # return render(request, 'signin.html', {'form': f})
 
 def home(request):
     return render(request, 'home.html',  {'name': request.user})
