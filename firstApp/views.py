@@ -12,7 +12,7 @@ from .serializers import medicalsummarySerializer,problemListSerializer,dignosti
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-# from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare, prescription
 from rest_framework import viewsets
 from .serializers import userSerializers
@@ -23,6 +23,13 @@ class userviewsets(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = userSerializers
 
+class HelloView(APIView):
+    permission_classes = (IsAuthenticated, )
+  
+    def get(self, request):
+        content = {'message': 'Hello, GeeksforGeeks'}
+        return Response(content)
+
 def index(request):
     return render(request, 'index.html')
 
@@ -31,9 +38,9 @@ def register(request):
         f = UserCreationForm(request.POST)
         if f.is_valid():
             f.save()
-    else:
-        f = UserCreationForm()
-    return render(request, "register.html", {"form": f})
+    # else:
+    #     f = UserCreationForm()
+    # return render(request, "register.html", {"form": f})
 
 
 # def signin(request):
