@@ -1,13 +1,13 @@
 from django.db.models import fields
 from rest_framework import serializers
 from .models import medicalsummary,problemList ,dignosticsresults ,pasthistory, planCare, prescription
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
-class userSerializers(serializers.ModelSerializer):
+# class userSerializers(serializers.ModelSerializer):
  
-    class Meta:
-        model = User
-        fields =  '__all__'
+#     class Meta:
+#         model = User
+#         fields =  '__all__'
 
 class medicalsummarySerializer(serializers.ModelSerializer):
     class Meta:

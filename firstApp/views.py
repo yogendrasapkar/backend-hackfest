@@ -12,16 +12,16 @@ from .serializers import medicalsummarySerializer,problemListSerializer,dignosti
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+# from rest_framework.permissions import IsAuthenticated
 from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare, prescription
-from rest_framework import viewsets
-from .serializers import userSerializers
-from django.contrib.auth.models import User
+# from rest_framework import viewsets
+# from .serializers import userSerializers
+# from django.contrib.auth.models import User
 
 # Create your views here.
-class userviewsets(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = userSerializers
+# class userviewsets(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = userSerializers
 
 def index(request):
     return render(request, 'index.html')
