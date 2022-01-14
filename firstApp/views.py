@@ -88,9 +88,9 @@ def userLogout(request):
 # Medical summary api's
 # Get all the records
 @api_view(['GET'])
-def getAllMedicalSummary(request):
+def getAllMedicalSummary(request, fk):
     if request.method == 'GET':
-        medicalRecord = medicalsummary.objects.all()
+        medicalRecord = medicalsummary.objects.filter(patient_id=fk)
         serialize = medicalsummarySerializer(medicalRecord, many=True)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -110,8 +110,8 @@ def getOneMedicalSummary(request, pk):
 @api_view(['POST'])
 def addOneRecord(request, fk):
     if request.method == 'POST':
+        request.data['patient_id'] = fk
         serialize = medicalsummarySerializer(data=request.data)
-        request.data['patient_id']=fk
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
@@ -135,7 +135,7 @@ def updateRecord(request, pk):
 @api_view(['DELETE'])
 def deleteRecord(request, pk):
     if request.method == 'DELETE':
-        medicalRecord = medicalsummary.objects.get(id=pk)
+        medicalRecord = medicalsummary.objects.get(patient_id=pk)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         medicalRecord.delete()
@@ -176,7 +176,7 @@ def getProblemList(request):
 @api_view(['GET'])
 def getOneProblemList(request,pk):
     if request.method == "GET":
-        probListRecord = problemList.objects.get(id=pk)
+        probListRecord = problemList.objects.get(patient_id=pk)
         serialize= problemListSerializer(probListRecord, many=False)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -185,8 +185,9 @@ def getOneProblemList(request,pk):
 
 # add a record in problem list
 @api_view(['POST'])
-def addOneToProblemList(request):
+def addOneToProblemList(request, fk):
     if request.method=="POST":
+        request.data['patient_id'] = fk
         serialize = problemListSerializer(data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -199,7 +200,7 @@ def addOneToProblemList(request):
 @api_view(['POST'])
 def updateProblemList(request,pk):
     if request.method=="POST":
-        probListRecord = problemList.objects.get(id=pk) 
+        probListRecord = problemList.objects.get(patient_id=pk) 
         serialize = problemListSerializer(instance=probListRecord,data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -211,7 +212,7 @@ def updateProblemList(request,pk):
 @api_view(['DELETE'])
 def deleteProblemList(request,pk):
     if request.method=="DELETE":
-        probListRecord = problemList.objects.get(id=pk)
+        probListRecord = problemList.objects.get(patient_id=pk)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         probListRecord.delete()
@@ -234,7 +235,7 @@ def getAllDiagnosticResults(request):
 @api_view(['GET'])
 def getOneDiagnosticResults(request,pk):
     if request.method == 'GET':
-        diagnosticRecord =dignosticsresults.objects.get(id=pk)
+        diagnosticRecord =dignosticsresults.objects.get(patient_id=pk)
         serialize = dignosticsresultSerializer(diagnosticRecord, many=False)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -242,8 +243,9 @@ def getOneDiagnosticResults(request,pk):
 
 # Add one diagnostic-result 
 @api_view(['POST'])
-def addOneDiagnosticRecord(request):
+def addOneDiagnosticRecord(request, fk):
     if request.method == 'POST':
+        request.data['patient_id'] = fk
         serialize = dignosticsresultSerializer(data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -256,7 +258,7 @@ def addOneDiagnosticRecord(request):
 @api_view(['POST'])
 def updateDiagnosticRecord(request, pk):
     if request.method == 'POST':
-        diagnosticRecord = dignosticsresults.objects.get(id=pk)
+        diagnosticRecord = dignosticsresults.objects.get(patient_id=pk)
         serialize = dignosticsresultSerializer(instance= diagnosticRecord , data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -269,7 +271,7 @@ def updateDiagnosticRecord(request, pk):
 @api_view(['DELETE'])
 def deleteDiagnosticRecord(request, pk):
     if request.method == 'DELETE':
-        dignosticRecord = dignosticsresults.objects.get(id=pk)
+        dignosticRecord = dignosticsresults.objects.get(patient_id=pk)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         dignosticRecord.delete()
@@ -282,7 +284,7 @@ def deleteDiagnosticRecord(request, pk):
 @api_view(['GET'])
 def getAllPastHistoryIllnessResult(request):
     if request.method == 'GET':
-        pastRecord =pasthistory.objects.all()
+        pastRecord = pasthistory.objects.all()
         serialize = pasthistorySerializer(pastRecord, many=True)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -292,7 +294,7 @@ def getAllPastHistoryIllnessResult(request):
 @api_view(['GET'])
 def getOnePastHistoryResults(request,pk):
     if request.method == 'GET':
-        pastRecord =pasthistory.objects.get(id=pk)
+        pastRecord =pasthistory.objects.get(patient_id=pk)
         serialize = pasthistorySerializer(pastRecord, many=False)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -300,8 +302,9 @@ def getOnePastHistoryResults(request,pk):
 
 # Add one Patient Past_history_illnesses record
 @api_view(['POST'])
-def addOneIllnessRecord(request):
+def addOneIllnessRecord(request, fk):
     if request.method == 'POST':
+        request.data['patient_id'] = fk
         serialize = pasthistorySerializer(data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -315,7 +318,7 @@ def addOneIllnessRecord(request):
 @api_view(['POST'])
 def updateIllnessRecord(request, pk):
     if request.method == 'POST':
-        pastRecord = pasthistory.objects.get(id=pk)
+        pastRecord = pasthistory.objects.get(patient_id=pk)
         serialize = pasthistorySerializer(instance= pastRecord , data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -328,7 +331,7 @@ def updateIllnessRecord(request, pk):
 @api_view(['DELETE'])
 def deleteIllnessRecord(request, pk):
     if request.method == 'DELETE':
-        pastRecord = pasthistory.objects.get(id=pk)
+        pastRecord = pasthistory.objects.get(patient_id=pk)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         pastRecord.delete()
@@ -351,7 +354,7 @@ def getPlanCare(request):
 @api_view(['GET'])
 def getOnePlanCare(request,pk):
     if request.method == "GET":
-        planCareRecord = planCare.objects.get(id=pk)
+        planCareRecord = planCare.objects.get(patient_id=pk)
         serialize = planCareSerializer(planCareRecord,many=False)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -359,8 +362,9 @@ def getOnePlanCare(request,pk):
 
 # add a record to plan care
 @api_view(['POST'])
-def addOneToPlanCare(request):
+def addOneToPlanCare(request, fk):
     if request.method == "POST":
+        request.data['patient_id'] = fk
         serialize = planCareSerializer(data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -373,7 +377,7 @@ def addOneToPlanCare(request):
 @api_view(['POST'])
 def updatePlanCare(request,pk):
     if request.method == "POST":
-        planCareRecord = planCare.objects.get(id=pk)
+        planCareRecord = planCare.objects.get(patient_id=pk)
         serialize = planCareSerializer(instance=planCareRecord,data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -385,7 +389,7 @@ def updatePlanCare(request,pk):
 @api_view(['DELETE'])
 def deletePlanCare(request,pk):
     if request.method == 'DELETE':
-        planCareRecord = planCare.objects.get(id=pk)
+        planCareRecord = planCare.objects.get(patient_id=pk)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         planCareRecord.delete()
@@ -415,8 +419,9 @@ def getOnePrescription(request,pk):
 
 # add a record to prescription
 @api_view(['POST'])
-def addOnePrescription(request):
+def addOnePrescription(request, fk):
     if request.method == "POST":
+        request.data['patient_id'] = fk
         serialize = prescriptionSerializer(data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -429,7 +434,7 @@ def addOnePrescription(request):
 @api_view(['POST'])
 def updatePrescription(request,pk):
     if request.method == "POST":
-        prescriptionRecord = prescription.objects.get(id=pk)
+        prescriptionRecord = prescription.objects.get(patient_id=pk)
         serialize = prescriptionSerializer(instance=prescriptionRecord,data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]

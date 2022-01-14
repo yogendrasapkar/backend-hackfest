@@ -15,7 +15,7 @@ urlpatterns = [
     # path('api/medicalsummary/<int:pk>', views.medicalsummaryView.as_view()),
 
     # Medical-Summary path
-    path('medicalSummary',views.getAllMedicalSummary,name='getAllMedicalSummary'),
+    path('medicalSummary/<int:fk>',views.getAllMedicalSummary,name='getAllMedicalSummary'),
     path('medicalSummary/<int:pk>',views.getOneMedicalSummary,name='getOneMedicalSummary'),
     path('addOneRecord/<int:fk>',views.addOneRecord,name='addOneRecord'),
     path('updateRecord/<int:pk>',views.updateRecord,name='updateRecord'),
@@ -24,35 +24,35 @@ urlpatterns = [
     # Problem-List path
     path('problemList',views.getProblemList,name='getProblemList'),
     path('problemList/<int:pk>',views.getOneProblemList,name='getOneProblemList'),
-    path('addOneProblemList',views.addOneToProblemList,name='addOneToProblemList'),
+    path('addOneProblemList/<int:fk>',views.addOneToProblemList,name='addOneToProblemList'),
     path('updateProblemList/<int:pk>',views.updateProblemList,name='updateProblemList'),
     path('deleteProblemList/<int:pk>',views.deleteProblemList,name='deleteProblemList'),
 
     # Diagnostic-Result path 
     path('diagnosticResult',views.getAllDiagnosticResults,name='getAllDiagnosticResultRecords'),
     path('diagnosticResult/<int:pk>',views.getOneDiagnosticResults,name='getAllDiagnosticResultRecords'),
-    path('addOneDignosticResult',views.addOneDiagnosticRecord,name='AddOneDiagnosticRecord'),
+    path('addOneDignosticResult/<int:fk>',views.addOneDiagnosticRecord,name='AddOneDiagnosticRecord'),
     path('updateDiagnosticRecord/<int:pk>',views.updateDiagnosticRecord,name='updateDiagnosticsRecord'),
     path('deleteDiagnosticRecord/<int:pk>',views.deleteDiagnosticRecord,name='deleteDiagnosticsRecord'),
     
     # Past History illnesses path
     path('allPastHistoryOfIllness',views.getAllPastHistoryIllnessResult,name='getAllPastHistoryOfIllness'),
     path('pastHistoryOfIllness/<int:pk>',views.getOnePastHistoryResults,name='getOnePastHistoryOfIllness'),
-    path('addOneIllnessRecord',views.addOneIllnessRecord,name='addOneIllnessRecord'),
+    path('addOneIllnessRecord/<int:fk>',views.addOneIllnessRecord,name='addOneIllnessRecord'),
     path('updateIllnessRecord/<int:pk>',views.updateIllnessRecord,name='updateIllnessRecord'),
     path('deleteIllnessRecord/<int:pk>',views.deleteIllnessRecord,name='deleteIllnessRecord'),
 
     # Plan care paths
     path('planCare',views.getPlanCare,name='getPlanCare'),
     path('planCare/<int:pk>',views.getOnePlanCare,name='getOnePlanCare'),
-    path('addOnePlanCare',views.addOneToPlanCare,name='addOneToPlanCare'),
+    path('addOnePlanCare/<int:fk>',views.addOneToPlanCare,name='addOneToPlanCare'),
     path('updatePlanCare/<int:pk>',views.updatePlanCare,name='updatePlanCare'),
     path('deletePlanCare/<int:pk>',views.deletePlanCare,name='deletePlanCare'),
 
     # prescription paths
     path('prescription/<int:fk>',views.getPrescription,name='getPrescription'),
     path('onePrescription/<int:pk>',views.getOnePrescription,name='getOnePrescription'),
-    path('addOnePrescription',views.addOnePrescription,name='addOnePrescription'),
+    path('addOnePrescription/<int:fk>',views.addOnePrescription,name='addOnePrescription'),
     path('updatePrescription/<int:pk>',views.updatePrescription,name='updatePrescription'),
 
 

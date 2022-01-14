@@ -94,7 +94,6 @@ class patientInfo(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
-    patient_id = models.IntegerField()
 
     def __str__(self):
-        return self.patient_id
+        return self.name
