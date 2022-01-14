@@ -166,6 +166,8 @@ def getProblemList(request):
     if request.method=="GET":
         probListRecord = problemList.objects.all()
         serialize = problemListSerializer(probListRecord, many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 
@@ -175,6 +177,9 @@ def getOneProblemList(request,pk):
     if request.method == "GET":
         probListRecord = problemList.objects.get(id=pk)
         serialize= problemListSerializer(probListRecord, many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
+
         return Response(serialize.data)
 
 # add a record in problem list
@@ -182,6 +187,8 @@ def getOneProblemList(request,pk):
 def addOneToProblemList(request):
     if request.method=="POST":
         serialize = problemListSerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -193,6 +200,8 @@ def updateProblemList(request,pk):
     if request.method=="POST":
         probListRecord = problemList.objects.get(id=pk) 
         serialize = problemListSerializer(instance=probListRecord,data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -202,6 +211,8 @@ def updateProblemList(request,pk):
 def deleteProblemList(request,pk):
     if request.method=="DELETE":
         probListRecord = problemList.objects.get(id=pk)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         probListRecord.delete()
         return Response("Record deleted from Problem List")
 
@@ -214,6 +225,8 @@ def getAllDiagnosticResults(request):
     if request.method == 'GET':
         diagnosticRecord =dignosticsresults.objects.all()
         serialize = dignosticsresultSerializer(diagnosticRecord, many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 #view one diagnostic records
@@ -222,6 +235,8 @@ def getOneDiagnosticResults(request,pk):
     if request.method == 'GET':
         diagnosticRecord =dignosticsresults.objects.get(id=pk)
         serialize = dignosticsresultSerializer(diagnosticRecord, many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # Add one diagnostic-result 
@@ -229,6 +244,8 @@ def getOneDiagnosticResults(request,pk):
 def addOneDiagnosticRecord(request):
     if request.method == 'POST':
         serialize = dignosticsresultSerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -240,6 +257,8 @@ def updateDiagnosticRecord(request, pk):
     if request.method == 'POST':
         diagnosticRecord = dignosticsresults.objects.get(id=pk)
         serialize = dignosticsresultSerializer(instance= diagnosticRecord , data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -250,6 +269,8 @@ def updateDiagnosticRecord(request, pk):
 def deleteDiagnosticRecord(request, pk):
     if request.method == 'DELETE':
         dignosticRecord = dignosticsresults.objects.get(id=pk)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         dignosticRecord.delete()
         return Response(" Dignostics Result Record deleted successfully")
 
@@ -262,6 +283,8 @@ def getAllPastHistoryIllnessResult(request):
     if request.method == 'GET':
         pastRecord =pasthistory.objects.all()
         serialize = pasthistorySerializer(pastRecord, many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 #view one  Patient Past_history_illnesses record
@@ -270,6 +293,8 @@ def getOnePastHistoryResults(request,pk):
     if request.method == 'GET':
         pastRecord =pasthistory.objects.get(id=pk)
         serialize = pasthistorySerializer(pastRecord, many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # Add one Patient Past_history_illnesses record
@@ -277,6 +302,8 @@ def getOnePastHistoryResults(request,pk):
 def addOneIllnessRecord(request):
     if request.method == 'POST':
         serialize = pasthistorySerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -289,6 +316,8 @@ def updateIllnessRecord(request, pk):
     if request.method == 'POST':
         pastRecord = pasthistory.objects.get(id=pk)
         serialize = pasthistorySerializer(instance= pastRecord , data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -299,6 +328,8 @@ def updateIllnessRecord(request, pk):
 def deleteIllnessRecord(request, pk):
     if request.method == 'DELETE':
         pastRecord = pasthistory.objects.get(id=pk)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         pastRecord.delete()
         return Response(" Past History Illness Record deleted successfully")
 
@@ -311,6 +342,8 @@ def getPlanCare(request):
     if request.method=="GET":
         planCareRecord=planCare.objects.all()
         serialize = planCareSerializer(planCareRecord,many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # get a record from plan care based on specific id
@@ -319,6 +352,8 @@ def getOnePlanCare(request,pk):
     if request.method == "GET":
         planCareRecord = planCare.objects.get(id=pk)
         serialize = planCareSerializer(planCareRecord,many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # add a record to plan care
@@ -326,6 +361,8 @@ def getOnePlanCare(request,pk):
 def addOneToPlanCare(request):
     if request.method == "POST":
         serialize = planCareSerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -337,6 +374,8 @@ def updatePlanCare(request,pk):
     if request.method == "POST":
         planCareRecord = planCare.objects.get(id=pk)
         serialize = planCareSerializer(instance=planCareRecord,data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -346,6 +385,8 @@ def updatePlanCare(request,pk):
 def deletePlanCare(request,pk):
     if request.method == 'DELETE':
         planCareRecord = planCare.objects.get(id=pk)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         planCareRecord.delete()
         return Response("The record has been deleted")
 
@@ -357,6 +398,8 @@ def getPrescription(request,fk):
     if request.method=="GET":
         prescriptionRecord = prescription.objects.filter(patient_id=fk)
         serialize = prescriptionSerializer(prescriptionRecord,many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # get one record from prescription
@@ -365,6 +408,8 @@ def getOnePrescription(request,pk):
     if request.method == "GET":
         prescriptionRecord = prescription.objects.get(id=pk)
         serialize = prescriptionSerializer(prescriptionRecord,many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         return Response(serialize.data)
 
 # add a record to prescription
@@ -372,6 +417,8 @@ def getOnePrescription(request,pk):
 def addOnePrescription(request):
     if request.method == "POST":
         serialize = prescriptionSerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -383,6 +430,8 @@ def updatePrescription(request,pk):
     if request.method == "POST":
         prescriptionRecord = prescription.objects.get(id=pk)
         serialize = prescriptionSerializer(instance=prescriptionRecord,data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
