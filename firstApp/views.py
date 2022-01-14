@@ -111,6 +111,8 @@ def getOneMedicalSummary(request, pk):
 def addOneRecord(request):
     if request.method == 'POST':
         serialize = medicalsummarySerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -122,6 +124,8 @@ def updateRecord(request, pk):
     if request.method == 'POST':
         medicalRecord = medicalsummary.objects.get(id=pk)
         serialize = medicalsummarySerializer(instance=medicalRecord, data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
@@ -131,6 +135,8 @@ def updateRecord(request, pk):
 def deleteRecord(request, pk):
     if request.method == 'DELETE':
         medicalRecord = medicalsummary.objects.get(id=pk)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
         medicalRecord.delete()
         return Response("Record deleted successfully")
 
