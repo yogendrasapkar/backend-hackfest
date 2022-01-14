@@ -8,12 +8,12 @@ from rest_framework import serializers
 from rest_framework.serializers import Serializer
 
 #for apis
-from .serializers import medicalsummarySerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer, prescriptionSerializer
+from .serializers import medicalsummarySerializer, patientInfoSerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer, prescriptionSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import medicalsummary,problemList ,dignosticsresults,pasthistory, planCare, prescription
+from .models import medicalsummary, patientInfo,problemList ,dignosticsresults,pasthistory, planCare, prescription
 from rest_framework import viewsets
 from .serializers import userSerializers
 from django.contrib.auth.models import User
@@ -386,3 +386,59 @@ def updatePrescription(request,pk):
         if(serialize.is_valid()):
             serialize.save()
             return Response(serialize.data)
+
+
+# patient info apis
+#get all
+@api_view(['GET'])
+def getPatientInfo(request):
+    if request.method == 'GET':
+        patientInfoRecord = patientInfo.objects.all()
+        serialize = patientInfoSerializer(patientInfoRecord, many=True)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
+        return Response(serialize.data)
+
+# get one
+@api_view(['GET'])
+def getOnePatientInfo(request,pk):
+    if request.method == 'GET':
+        patientInfoRecord = patientInfo.objects.get(id=pk)
+        serialize = patientInfoSerializer(patientInfoRecord, many=False)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
+        return Response(serialize.data)
+
+#add
+@api_view(['POST'])
+def addToPatientInfo(request):
+    if request.method == 'POST':
+        serialize = patientInfoSerializer(data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors)
+
+#update
+@api_view(['POST'])
+def updatePatientInfo(request,pk):
+    if request.method == 'POST':
+        patientInfoRecord = patientInfo.objects.get(id=pk)
+        serialize = patientInfoSerializer(instance=patientInfoRecord, data=request.data)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
+        if(serialize.is_valid()):
+            serialize.save()
+            return Response(serialize.data)
+    
+#delete
+@api_view(['DELETE'])
+def deletePatientInfo(request,pk):
+    if request.method == 'DELETE':
+        patientInfoRecord = patientInfo.objects.get(id=pk)
+        authentication_classes = [TokenAuthentication, ]
+        permission_classes = [IsAuthenticated, ]
+        patientInfoRecord.delete()
+        return Response("Patient info record deleted successfully")

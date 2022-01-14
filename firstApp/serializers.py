@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import medicalsummary,problemList ,dignosticsresults ,pasthistory, planCare, prescription
+from .models import medicalsummary, patientInfo,problemList ,dignosticsresults ,pasthistory, planCare, prescription
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
@@ -50,4 +50,10 @@ class planCareSerializer(serializers.ModelSerializer):
 class prescriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = prescription
+        fields = '__all__'
+
+
+class patientInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = patientInfo
         fields = '__all__'
