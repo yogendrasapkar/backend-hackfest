@@ -108,9 +108,10 @@ def getOneMedicalSummary(request, pk):
 
 # Add one record
 @api_view(['POST'])
-def addOneRecord(request):
+def addOneRecord(request, fk):
     if request.method == 'POST':
         serialize = medicalsummarySerializer(data=request.data)
+        request.data['patient_id']=fk
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
         if(serialize.is_valid()):
