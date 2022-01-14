@@ -54,4 +54,12 @@ urlpatterns = [
     path('onePrescription/<int:pk>',views.getOnePrescription,name='getOnePrescription'),
     path('addOnePrescription',views.addOnePrescription,name='addOnePrescription'),
     path('updatePrescription/<int:pk>',views.updatePrescription,name='updatePrescription'),
+
+
+    #patient info paths
+    path('patientInfo',views.getPatientInfo,name='getPatientInfo'),
+    path('patientInfo/<int:pk>',views.getOnePatientInfo,name='getOnePatientInfo'),
+    path('addPatientInfo',views.addToPatientInfo,name='addToPatientInfo'),
+    path('updatePatientInfo/<int:pk>',views.updatePatientInfo,name='updatePatinetInfo'),
+    path('deletePatientInfo/<int:pk>',views.deletePatientInfo,name='deletePatientInfo'),
 ]

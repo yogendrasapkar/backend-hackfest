@@ -86,3 +86,15 @@ class prescription(models.Model):
     max_amount_dose_unit = models.CharField(max_length=10)
     comments = models.CharField(max_length=100)
     patient_id = models.IntegerField()
+
+
+# create patient info model
+
+class patientInfo(models.Model):
+    name = models.CharField(max_length=50)
+    age = models.IntegerField()
+    gender = models.CharField(max_length=10)
+    patient_id = models.IntegerField()
+
+    def __str__(self):
+        return self.patient_id
