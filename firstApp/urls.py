@@ -16,7 +16,7 @@ urlpatterns = [
 
     # Medical-Summary path
     path('medicalSummary/<int:fk>',views.getAllMedicalSummary,name='getAllMedicalSummary'),
-    path('medicalSummary/<int:pk>',views.getOneMedicalSummary,name='getOneMedicalSummary'),
+    path('medicalOneSummary/<int:pk>',views.getOneMedicalSummary,name='getOneMedicalSummary'),
     path('addOneRecord/<int:fk>',views.addOneRecord,name='addOneRecord'),
     path('updateRecord/<int:pk>',views.updateRecord,name='updateRecord'),
     path('deleteRecord/<int:pk>',views.deleteRecord,name='deleteRecord'),
