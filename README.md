@@ -80,7 +80,22 @@ api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WS
  - Doctor can view all diagnosis result of a patient
  - Method: GET
  - api Link---> https://backend-django-innovaccer.herokuapp.com/diagnosticResult/<int:pk>
- -api screenshort Image Link --->https://drive.google.com/file/d/16CrPXxYe0F-vMArtSpE3PIZzV2ZfrdBr/view?usp=sharing
+ -api screenshort Image Link ---> https://drive.google.com/file/d/16CrPXxYe0F-vMArtSpE3PIZzV2ZfrdBr/view?usp=sharing
+ 
+ 
+ 12) add patient plan of care --> 
+ - Doctor can add plan of care for the patient
+ - Method: POST
+ - api LInk -->  https://backend-django-innovaccer.herokuapp.com/addOnePlanCare/<int:fk>
+ - <int:fk> --> pass patient id 
+
+ 13) View one plan of care specific record -->
+ - Doctor can view specific patient one plan of care record
+ - Method: GET
+ - api Link --https://backend-django-innovaccer.herokuapp.com/planOneCare/<int:pk>
+ - api screenshort Image Link ---> https://drive.google.com/file/d/1F5DMJn6xvqnIWz_mDZwhwTpf9Bkqhv1S/view?usp=sharing
+ 
+ 14) 
  
 
   
