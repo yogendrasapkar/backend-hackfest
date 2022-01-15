@@ -28,11 +28,12 @@ api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WS
 4) View one medical Summery of a patient --->
  - Doctor can view one specific medical Summery of a patient
  - Method: GET
- - api Link --> https://backend-django-innovaccer.herokuapp.com/medicalSummary/<int:pk>
- - 
+ - api Link --> https://backend-django-innovaccer.herokuapp.com/medicalOneSummary/<int:pk>
+ - <int:pk> --> pass medical summary id here
 
 
-4) Add eprescription api -->
+
+5) Add eprescription api -->
  - Doctor add prescription for the patient 
  - Method: POST
  - api Link -->  https://backend-django-innovaccer.herokuapp.com/addOnePrescription/<int:fk>
@@ -41,7 +42,7 @@ api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WS
 - api screenshort Image Link ---> https://drive.google.com/file/d/1bdcmkQ3UM0lJRyXZ9bm7ZxFyAJgwLkfz/view?usp=sharing
 
 
-5) view all prescription records of specific patient --->
+6) view all prescription records of specific patient --->
 - Doctor view all specific patient all records
 - Method : GET
 - api Link : https://backend-django-innovaccer.herokuapp.com/prescription/<int:fk>
@@ -49,14 +50,14 @@ api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WS
 - api screenshort Image Link ---> https://drive.google.com/file/d/1C5ug-LeCdjTjQxnWuHGfR-R8Vq48xKbB/view?usp=sharing
 
 
-6) View Specific prescription of patient -->
+7) View Specific prescription of patient -->
 - Doctor can view specific prescription of patient
 - Method: GET
 - api Link :  https://backend-django-innovaccer.herokuapp.com/onePrescription/<int:pk>
 - <int:pk> --> pass prescription id here
 - api screenshort Image Link --->  https://drive.google.com/file/d/1gNNm7fktNSd90UeDa6aQJCBXT4FxyT3u/view?usp=sharing
 
-7) Update specific prescription of patient -->
+8) Update specific prescription of patient -->
 - Doctor can update prescription of specific patient
 - Method: POST
 - api Link: https://backend-django-innovaccer.herokuapp.com/updatePrescription/<int:pk>
