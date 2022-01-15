@@ -223,9 +223,9 @@ def deleteProblemList(request,pk):
 # diagnostics-result api
 # view all diagnostics records
 @api_view(['GET'])
-def getAllDiagnosticResults(request):
+def getAllDiagnosticResults(request,pk):
     if request.method == 'GET':
-        diagnosticRecord =dignosticsresults.objects.all()
+        diagnosticRecord =dignosticsresults.objects.filter(patient_id=pk)
         serialize = dignosticsresultSerializer(diagnosticRecord, many=True)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]

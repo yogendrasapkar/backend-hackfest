@@ -29,7 +29,7 @@ urlpatterns = [
     path('deleteProblemList/<int:pk>',views.deleteProblemList,name='deleteProblemList'),
 
     # Diagnostic-Result path 
-    path('diagnosticResult',views.getAllDiagnosticResults,name='getAllDiagnosticResultRecords'),
+    path('diagnosticResult/<int:pk>',views.getAllDiagnosticResults,name='getAllDiagnosticResultRecords'),
     path('diagnosticResult/<int:pk>',views.getOneDiagnosticResults,name='getAllDiagnosticResultRecords'),
     path('addOneDignosticResult/<int:fk>',views.addOneDiagnosticRecord,name='AddOneDiagnosticRecord'),
     path('updateDiagnosticRecord/<int:pk>',views.updateDiagnosticRecord,name='updateDiagnosticsRecord'),
