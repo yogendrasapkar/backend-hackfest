@@ -43,7 +43,7 @@ urlpatterns = [
     path('deleteIllnessRecord/<int:pk>',views.deleteIllnessRecord,name='deleteIllnessRecord'),
 
     # Plan care paths
-    path('planCare',views.getPlanCare,name='getPlanCare'),
+    path('planCare/<int:pk>',views.getPlanCare,name='getPlanCare'),
     path('planOneCare/<int:pk>',views.getOnePlanCare,name='getOnePlanCare'),
     path('addOnePlanCare/<int:fk>',views.addOneToPlanCare,name='addOneToPlanCare'),
     path('updatePlanCare/<int:pk>',views.updatePlanCare,name='updatePlanCare'),
