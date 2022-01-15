@@ -64,7 +64,23 @@ api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WS
 - <int:fk> --> pass prescription id here
 - api screenshort Image Link ---> https://drive.google.com/file/d/1pc2fRR1jM4vNQ4L5I65QIna36bz1APgB/view?usp=sharing
 
+9) add  dignosis result --
+- Doctor can add dignosis result of patient
+- Method: Post
+- api Link ---> https://backend-django-innovaccer.herokuapp.com/addOneDignosticResult/<int:fk>
+- <int:fk> --> pass dignosis id here
 
+10) View Diagnosis result of a specific patient -->
+  -Method: GET
+  - Api Link -->https://backend-django-innovaccer.herokuapp.com/diagnosticOneResult/<int:pk>
+ - <int:fk> --> pass patient id here
+ -api screenshort Image Link ---> https://drive.google.com/file/d/1a8uX5DQnBtYKu0L0vQQP83AWQrJUsvx8/view?usp=sharing
+ 
+ 11) View all Diagnosis result of a specific patient -->
+ - Doctor can view all diagnosis result of a patient
+ - Method: GET
+ - api Link---> https://backend-django-innovaccer.herokuapp.com/diagnosticResult/<int:pk>
+ -api screenshort Image Link --->https://drive.google.com/file/d/16CrPXxYe0F-vMArtSpE3PIZzV2ZfrdBr/view?usp=sharing
  
 
   
