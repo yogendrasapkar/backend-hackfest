@@ -44,7 +44,7 @@ urlpatterns = [
 
     # Plan care paths
     path('planCare',views.getPlanCare,name='getPlanCare'),
-    path('planCare/<int:pk>',views.getOnePlanCare,name='getOnePlanCare'),
+    path('planOneCare/<int:pk>',views.getOnePlanCare,name='getOnePlanCare'),
     path('addOnePlanCare/<int:fk>',views.addOneToPlanCare,name='addOneToPlanCare'),
     path('updatePlanCare/<int:pk>',views.updatePlanCare,name='updatePlanCare'),
     path('deletePlanCare/<int:pk>',views.deletePlanCare,name='deletePlanCare'),
