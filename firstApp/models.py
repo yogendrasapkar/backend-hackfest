@@ -69,7 +69,7 @@ class planCare(models.Model):
     patient_id = models.IntegerField()
 
     def __str__(self):
-        return self.patient_id
+        return str(self.patient_id)
 
 
 # create prescription model

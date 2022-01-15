@@ -342,9 +342,9 @@ def deleteIllnessRecord(request, pk):
 # Plan care apis
 # get all records from plan care
 @api_view(['GET'])
-def getPlanCare(request):
+def getPlanCare(request,pk):
     if request.method=="GET":
-        planCareRecord=planCare.objects.all()
+        planCareRecord=planCare.objects.filter(patient_id=pk)
         serialize = planCareSerializer(planCareRecord,many=True)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
@@ -354,7 +354,7 @@ def getPlanCare(request):
 @api_view(['GET'])
 def getOnePlanCare(request,pk):
     if request.method == "GET":
-        planCareRecord = planCare.objects.get(patient_id=pk)
+        planCareRecord = planCare.objects.get(id=pk)
         serialize = planCareSerializer(planCareRecord,many=False)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]
