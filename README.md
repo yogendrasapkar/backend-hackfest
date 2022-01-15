@@ -93,9 +93,14 @@ api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WS
  - Doctor can view specific patient one plan of care record
  - Method: GET
  - api Link --https://backend-django-innovaccer.herokuapp.com/planOneCare/<int:pk>
- - api screenshort Image Link ---> https://drive.google.com/file/d/1F5DMJn6xvqnIWz_mDZwhwTpf9Bkqhv1S/view?usp=sharing
+ - api screenshort Image Link ---> https://drive.google.com/file/d/1FZ980ASiRcVUQBDgWHzrOLZDxE83QXO_/view?usp=sharing
  
- 14) 
+ 14) View all plane of care records of specific patient --->
+ - Doctor can view all plane of care records for specific patient 
+ - Method: GET
+ - api Link -->  https://backend-django-innovaccer.herokuapp.com/planCare/<int:pk>
+ - <int:pk> --> pass patient id 
+  -api screenshort Image Link --> https://drive.google.com/file/d/1XLstLWXPch78beEIe86XNvR7w10KknxK/view?usp=sharing
  
 
   
