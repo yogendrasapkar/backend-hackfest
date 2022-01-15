@@ -30,7 +30,7 @@ urlpatterns = [
 
     # Diagnostic-Result path 
     path('diagnosticResult/<int:pk>',views.getAllDiagnosticResults,name='getAllDiagnosticResultRecords'),
-    path('diagnosticResult/<int:pk>',views.getOneDiagnosticResults,name='getAllDiagnosticResultRecords'),
+    path('diagnosticOneResult/<int:pk>',views.getOneDiagnosticResults,name='getAllDiagnosticResultRecords'),
     path('addOneDignosticResult/<int:fk>',views.addOneDiagnosticRecord,name='AddOneDiagnosticRecord'),
     path('updateDiagnosticRecord/<int:pk>',views.updateDiagnosticRecord,name='updateDiagnosticsRecord'),
     path('deleteDiagnosticRecord/<int:pk>',views.deleteDiagnosticRecord,name='deleteDiagnosticsRecord'),
