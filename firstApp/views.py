@@ -434,7 +434,7 @@ def addOnePrescription(request, fk):
 @api_view(['POST'])
 def updatePrescription(request,pk):
     if request.method == "POST":
-        prescriptionRecord = prescription.objects.get(patient_id=pk)
+        prescriptionRecord = prescription.objects.get(id=pk)
         serialize = prescriptionSerializer(instance=prescriptionRecord,data=request.data)
         authentication_classes = [TokenAuthentication, ]
         permission_classes = [IsAuthenticated, ]

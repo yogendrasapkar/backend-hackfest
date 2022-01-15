@@ -20,7 +20,7 @@ class medicalsummary(models.Model):
     patient_id = models.IntegerField()
 
     def __str__(self):
-        return self.form
+        return str(self.patient_id)
 
 
 # create problem-list model
@@ -86,6 +86,9 @@ class prescription(models.Model):
     max_amount_dose_unit = models.CharField(max_length=10)
     comments = models.CharField(max_length=100)
     patient_id = models.IntegerField()
+
+    def __str__(self):
+        return str(self.patient_id)
 
 
 # create patient info model
