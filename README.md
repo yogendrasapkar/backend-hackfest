@@ -13,10 +13,9 @@ Apis
 
 2) Patient Info Api -->
 
-  - Display patient information 
-  -api -->
+  - Display all  patient information 
+  -api --> https://backend-django-innovaccer.herokuapp.com/patientInfo
   - Method :  GET
-  - https://backend-django-innovaccer.herokuapp.com/patientInfo
   
   - api screenshort Image link --->  https://drive.google.com/file/d/1RaYgDfaTjw-tvZtsiH56jIxp4CUgfVJD/view?usp=sharing
   
@@ -78,12 +77,12 @@ Apis
 
 *****************************DIAGNOSTIC RESULT APIS *****************************************************************
 
-9) add  dignosis result --
+9) add  diagnosis result --
 
-- Doctor can add dignosis result of patient
+- Doctor can add diagnosis result of patient
 - Method: Post
 - api Link ---> https://backend-django-innovaccer.herokuapp.com/addOneDignosticResult/<int:fk>
-- <int:fk> --> pass dignosis id here
+- <int:fk> --> pass diganosis id here
 
 10) View Diagnosis result of a specific patient -->
 
