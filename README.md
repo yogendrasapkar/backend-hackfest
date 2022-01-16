@@ -21,7 +21,15 @@
   
  *****************************MEDICAL SUMMARY APIS *******************************************************************
  
-3) Medical Summary Api -->
+ 3) Add Medical Summary -->
+  - Doctor can add patient medical summary 
+  - Method:POST
+  - api Link --> https://backend-django-innovaccer.herokuapp.com/addOneRecord/<int:pk>
+  - <int:pk> --> pass patient id here
+  
+ <img src="Image/addOneMedicalSummary.png">
+ 
+4) Medical Summary Api -->
 
  - See all Medical Records only for specific patient -
  - api link -https://backend-django-innovaccer.herokuapp.com/medicalSummary/<int:fk>
@@ -31,7 +39,7 @@
 
  <img src="Image/medicalSummary.png">
 
-4) View one medical Summery of a patient --->
+5) View one medical Summery of a patient --->
 
  - Doctor can view one specific medical Summery of a patient
  - Method: GET
@@ -42,7 +50,7 @@
 
 **********************************EPRESCRIPTION APIS  ************************************************************
 
-5) Add eprescription api -->
+6) Add eprescription api -->
 
  - Doctor add prescription for the patient 
  - Method: POST
@@ -52,7 +60,7 @@
    <img src="Image/addOnePrescription.png">
 
 
-6) view all prescription records of specific patient --->
+7) view all prescription records of specific patient --->
 
 - Doctor view all specific patient all records
 - Method : GET
@@ -62,7 +70,7 @@
   <img src="Image/viewAllPrescription.png">
 
 
-7) View Specific prescription of patient -->
+8) View Specific prescription of patient -->
 
 - Doctor can view specific prescription of patient
 - Method: GET
@@ -71,7 +79,7 @@
 
  <img src="Image/oneprescription.png">
 
-8) Update specific prescription of patient -->
+9) Update specific prescription of patient -->
 
 - Doctor can update prescription of specific patient
 - Method: POST
@@ -82,7 +90,7 @@
 
 *****************************DIAGNOSTIC RESULT APIS *****************************************************************
 
-9) add  diagnosis result --
+10) add  diagnosis result --
 
 - Doctor can add diagnosis result of patient
 - Method: Post
@@ -91,7 +99,7 @@
 
  <img src="Image/addOneDiagnosticResult.png">
 
-10) View Diagnosis result of a specific patient -->
+11) View Diagnosis result of a specific patient -->
 
   -Method: GET
   - Api Link -->https://backend-django-innovaccer.herokuapp.com/diagnosticOneResult/<int:pk>
@@ -99,7 +107,7 @@
  
    <img src="Image/dignosisOne.png">
  
- 11) View all Diagnosis result of a specific patient -->
+ 12) View all Diagnosis result of a specific patient -->
  
  - Doctor can view all diagnosis result of a patient
  - Method: GET
@@ -110,7 +118,7 @@
  
  *********************************PATIENT PLAN OF CARE APIS**********************************************************
  
- 12) add patient plan of care --> 
+ 13) add patient plan of care --> 
  
  - Doctor can add plan of care for the patient
  - Method: POST
@@ -119,7 +127,7 @@
  - 
    <img src="Image/addOnePlanCare.png">
 
- 13) View one plan of care specific record -->
+ 14) View one plan of care specific record -->
 
  - Doctor can view specific patient one plan of care record
  - Method: GET
@@ -128,7 +136,7 @@
  
    <img src="Image/planOneCare.png">
  
- 14) View all plane of care records of specific patient --->
+ 15) View all plane of care records of specific patient --->
  
  - Doctor can view all plane of care records for specific patient 
  - Method: GET
