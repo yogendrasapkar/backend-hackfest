@@ -1,23 +1,23 @@
 # backend-hackfest
 
-Apis
 *****************************LOGIN APIS *********************************************************************************
 1) Login api -->
 
  - Doctor can login with validate credentials
  - api Link: https://backend-django-innovaccer.herokuapp.com/api-token-auth/
  - if Doctor not enter validate credentials then he is not login 
- - api screenshort Image link ---> https://drive.google.com/file/d/16vksB8Ihpn3RpvVzuxP4xiUGNd7Qrjjn/view?usp=sharing
  
-*****************************PATIENT INFO APIS *****************************************************************8***
+   <img src="Image/loginToken.png">
+ 
+*****************************PATIENT INFO APIS ********************************************************************
 
 2) Patient Info Api -->
 
   - Display all  patient information 
-  -api --> https://backend-django-innovaccer.herokuapp.com/patientInfo
+  - api --> https://backend-django-innovaccer.herokuapp.com/patientInfo
   - Method :  GET
-  
-  - api screenshort Image link --->  https://drive.google.com/file/d/1RaYgDfaTjw-tvZtsiH56jIxp4CUgfVJD/view?usp=sharing
+
+  <img src="Image/patientInfo.png">
   
  *****************************MEDICAL SUMMARY APIS *******************************************************************
  
@@ -29,7 +29,7 @@ Apis
 - Show all total medical records available in the database of us specific patient.
 - <int:fk> --> pass your patient id here
 
-- api screenshort Image Link --->  https://drive.google.com/file/d/12cnT_dvuU563WSDhCE46LJ22sMjC4FRo/view?usp=sharing
+ <img src="Image/medicalSummary.png">
 
 4) View one medical Summery of a patient --->
 
@@ -37,6 +37,8 @@ Apis
  - Method: GET
  - api Link --> https://backend-django-innovaccer.herokuapp.com/medicalOneSummary/<int:pk>
  - <int:pk> --> pass medical summary id here
+ 
+   <img src="Image/medicalOneSummary.png">
 
 **********************************EPRESCRIPTION APIS  ************************************************************
 
@@ -46,8 +48,8 @@ Apis
  - Method: POST
  - api Link -->  https://backend-django-innovaccer.herokuapp.com/addOnePrescription/<int:fk>
  - <int:fk> --> pass your patient id here
- 
- - api screenshort Image Link ---> https://drive.google.com/file/d/1bdcmkQ3UM0lJRyXZ9bm7ZxFyAJgwLkfz/view?usp=sharing
+
+   <img src="Image/addOnePrescription.png">
 
 
 6) view all prescription records of specific patient --->
@@ -56,7 +58,8 @@ Apis
 - Method : GET
 - api Link : https://backend-django-innovaccer.herokuapp.com/prescription/<int:fk>
 - <int:fk> --> pass patient id here
-- api screenshort Image Link ---> https://drive.google.com/file/d/1C5ug-LeCdjTjQxnWuHGfR-R8Vq48xKbB/view?usp=sharing
+
+  <img src="Image/viewAllPrescription.png">
 
 
 7) View Specific prescription of patient -->
@@ -65,7 +68,8 @@ Apis
 - Method: GET
 - api Link :  https://backend-django-innovaccer.herokuapp.com/onePrescription/<int:pk>
 - <int:pk> --> pass prescription id here
-- api screenshort Image Link --->  https://drive.google.com/file/d/1gNNm7fktNSd90UeDa6aQJCBXT4FxyT3u/view?usp=sharing
+
+ <img src="Image/oneprescription.png">
 
 8) Update specific prescription of patient -->
 
@@ -73,7 +77,8 @@ Apis
 - Method: POST
 - api Link: https://backend-django-innovaccer.herokuapp.com/updatePrescription/<int:pk>
 - <int:fk> --> pass prescription id here
-- api screenshort Image Link ---> https://drive.google.com/file/d/1pc2fRR1jM4vNQ4L5I65QIna36bz1APgB/view?usp=sharing
+
+<img src="Image/updatePrescription.png">
 
 *****************************DIAGNOSTIC RESULT APIS *****************************************************************
 
@@ -82,23 +87,28 @@ Apis
 - Doctor can add diagnosis result of patient
 - Method: Post
 - api Link ---> https://backend-django-innovaccer.herokuapp.com/addOneDignosticResult/<int:fk>
-- <int:fk> --> pass diganosis id here
+- <int:fk> --> pass diagnosis id here
+
+ <img src="Image/addOneDiagnosticResult.png">
 
 10) View Diagnosis result of a specific patient -->
 
   -Method: GET
   - Api Link -->https://backend-django-innovaccer.herokuapp.com/diagnosticOneResult/<int:pk>
- - <int:fk> --> pass patient id here
- - api screenshort Image Link ---> https://drive.google.com/file/d/1a8uX5DQnBtYKu0L0vQQP83AWQrJUsvx8/view?usp=sharing
+ - <int:fk> --> pass Diagnosis id here
+ 
+   <img src="Image/dignosisOne.png">
  
  11) View all Diagnosis result of a specific patient -->
  
  - Doctor can view all diagnosis result of a patient
  - Method: GET
  - api Link---> https://backend-django-innovaccer.herokuapp.com/diagnosticResult/<int:pk>
- - api screenshort Image Link ---> https://drive.google.com/file/d/16CrPXxYe0F-vMArtSpE3PIZzV2ZfrdBr/view?usp=sharing
  
-*********************************PATIENT PLAN OF CARE APIS*******************************************************************
+  <img src="Image/allDiagnosis.png">
+  
+ 
+ *********************************PATIENT PLAN OF CARE APIS**********************************************************
  
  12) add patient plan of care --> 
  
@@ -106,13 +116,17 @@ Apis
  - Method: POST
  - api LInk -->  https://backend-django-innovaccer.herokuapp.com/addOnePlanCare/<int:fk>
  - <int:fk> --> pass patient id 
+ - 
+   <img src="Image/addOnePlanCare.png">
 
  13) View one plan of care specific record -->
 
  - Doctor can view specific patient one plan of care record
  - Method: GET
- - api Link --https://backend-django-innovaccer.herokuapp.com/planOneCare/<int:pk>
- - api screenshort Image Link ---> https://drive.google.com/file/d/1FZ980ASiRcVUQBDgWHzrOLZDxE83QXO_/view?usp=sharing
+ - api Link --https://backend-django-innovaccer.herokuapp.com/planOneCare/<
+ - <int:pk> --> pass Plan Of Care id here 
+ 
+   <img src="Image/planOneCare.png">
  
  14) View all plane of care records of specific patient --->
  
@@ -120,7 +134,8 @@ Apis
  - Method: GET
  - api Link -->  https://backend-django-innovaccer.herokuapp.com/planCare/<int:pk>
  - <int:pk> --> pass patient id 
- - api screenshort Image Link --> https://drive.google.com/file/d/1XLstLWXPch78beEIe86XNvR7w10KknxK/view?usp=sharing
+
+ <img src="Image/allplaneOfCare.png">
  
 
   
