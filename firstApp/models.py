@@ -39,12 +39,14 @@ class problemList(models.Model):
 # create Diagnostics-result model
 class dignosticsresults(models.Model):
     test_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
+    method_of_diagnosis = models.CharField(max_length=100)
+    body_site = models.CharField(max_length=100)
     test_result = models.CharField(max_length=50)
     patient_id = models.IntegerField()
 
     def __str__(self):
-        return self.patient_id
+        return str(self.patient_id)
 
 
 # create Past History of illnesses model
@@ -66,6 +68,8 @@ class planCare(models.Model):
     carePlanName = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     reason = models.CharField(max_length=100)
+    type_of_diet = models.CharField(max_length=100)
+    bedrest = models.CharField(max_length=100)
     patient_id = models.IntegerField()
 
     def __str__(self):
