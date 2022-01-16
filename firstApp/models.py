@@ -27,7 +27,7 @@ class medicalsummary(models.Model):
 class problemList(models.Model):
     diagnosisName = models.CharField(max_length=100)
     bodySite = models.CharField(max_length=100)
-    dateOfOnset = models.DateField()
+    dateOfOnset = models.CharField(max_length=100)
     severity = models.CharField(max_length=100)
     diagnosticCertainity = models.CharField(max_length=100)
     patient_id = models.IntegerField()
