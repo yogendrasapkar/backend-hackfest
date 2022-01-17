@@ -102,7 +102,7 @@
  
  - Doctor can view all diagnosis result of a patient
  - Method: GET
- - ````api Link: https://backend-django-innovaccer.herokuapp.com/diagnosticResult/<int:pk>```
+ - ```api Link: https://backend-django-innovaccer.herokuapp.com/diagnosticResult/<int:pk>```
  
   <img src="Image/allDiagnosis.png">
   
