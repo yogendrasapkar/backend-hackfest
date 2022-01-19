@@ -8,40 +8,53 @@ from rest_framework import serializers
 from rest_framework.serializers import Serializer
 
 #for apis
-from .serializers import medicalsummarySerializer, patientInfoSerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer, prescriptionSerializer
+from .serializers import medicalsummarySerializer,userSerializers, patientInfoSerializer,problemListSerializer,dignosticsresultSerializer,pasthistorySerializer, planCareSerializer, prescriptionSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import medicalsummary, patientInfo,problemList ,dignosticsresults,pasthistory, planCare, prescription
 from rest_framework import viewsets
-from .serializers import userSerializers
+
 from django.contrib.auth.models import User
 from rest_framework.authentication import TokenAuthentication
 
+from rest_framework import generics, permissions
+from rest_framework.response import Response
+from knox.models import AuthToken
+
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.decorators import authentication_classes, permission_classes
 # Create your views here.
+
+
+
+
 class userviewsets(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = userSerializers
 
-class HelloView(APIView):
-    permission_classes = (IsAuthenticated, )
+# class HelloView(APIView):
+#     permission_classes = (IsAuthenticated, )
   
-    def get(self, request):
-        content = {'message': 'Hello, GeeksforGeeks'}
-        return Response(content)
+#     def get(self, request):
+#         content = {'message': 'Hello, GeeksforGeeks'}
+#         return Response(content)
 
 def index(request):
     return render(request, 'index.html')
 
+@api_view(['POST'])    
+@authentication_classes([])
+@permission_classes([])
 def register(request):
     if request.method == "POST":
-        f = UserCreationForm(request.POST)
+        f = UserCreationForm(data =request.data)
         if f.is_valid():
             f.save()
-    # else:
-    #     f = UserCreationForm()
-    # return render(request, "register.html", {"form": f})
+            return Response ("User successfully created")
+        else:
+            return Response("User not created")
 
 
 # def signin(request):
