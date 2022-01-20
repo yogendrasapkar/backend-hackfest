@@ -6,29 +6,49 @@ on:
   pull_request:
     branches: [ master ]
 
+# jobs:
+#   docker:
+#     runs-on: ubuntu-latest
+#     steps:
+#       -
+#         name: Set up QEMU
+#         uses: docker/setup-qemu-action@v1
+#       -
+#         name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v1
+#       -
+#         name: Login to DockerHub
+#         uses: docker/login-action@v1 
+#         with:
+#           username: ${{ secrets.DOCKER_USERNAME }}
+#           password: ${{ secrets.DOCKER_PASSWORD }}
+#       -
+#         name: Build and push
+#         id: docker_build
+#         uses: docker/build-push-action@v2
+#         with:
+#           push: true
+#           tags: user/app:latest
+
+
+
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      -
-        name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: user/app:latest
+    - uses: actions/checkout@v2
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}   
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
+      run: |
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - name: Docker build
+      run: |
+        docker build . --file Dockerfile --tag docker18d/django-ci-cd:latest
+    - name: docker push
+      run: |
+        docker push docker18d/django-ci-cd
 
   # health-check:
 
