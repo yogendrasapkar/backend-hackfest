@@ -52,9 +52,9 @@ def register(request):
         f = UserCreationForm(data =request.data)
         if f.is_valid():
             f.save()
-            return Response ("User successfully created")
+            return Response ("true")
         else:
-            return Response("User not created")
+            return Response("false")
 
 
 # def signin(request):

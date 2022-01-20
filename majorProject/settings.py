@@ -83,27 +83,27 @@ WSGI_APPLICATION = 'majorProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'majorproject',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
-# DATABASES = { 
+# DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'daqv27do49i6rp',
-#         'USER': 'jfzoluwskntrqr',
-#         'PASSWORD': 'baf25e08e26c20f7f4c2b499a67e9b4008270ab0222607bdf9ef7cd0bcd1b851',
-#         'HOST': 'ec2-34-230-198-12.compute-1.amazonaws.com',
-#         'PORT': '5432',
+#         'NAME': 'majorproject',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '',
 #     }
 # }
+
+DATABASES = { 
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'daqv27do49i6rp',
+        'USER': 'jfzoluwskntrqr',
+        'PASSWORD': 'baf25e08e26c20f7f4c2b499a67e9b4008270ab0222607bdf9ef7cd0bcd1b851',
+        'HOST': 'ec2-34-230-198-12.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
