@@ -20,7 +20,7 @@ jobs:
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Docker build
       run: |
-        docker build . --file Dockerfile --tag docker18d/django-ci-cd:latest
+        docker build . --file Dockerfile --tag docker push yogendrasapkar97/final-project-hackefest:tagname
     - name: Docker push
       run: |
-        docker push docker18d/django-ci-cd
+        docker push yogendrasapkar97/final-project-hackefest:tagname
