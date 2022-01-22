@@ -19,11 +19,11 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 1024,
+      "memory": 5000,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:django_project_image1",
+      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:2c6839a5043e25813656db34993677e851ac11ab",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -44,13 +44,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "2048",
+  "memory": "5120",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:7",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:10",
   "family": "inrecord-groupd",
   "requiresAttributes": [
     {
@@ -66,8 +66,8 @@
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "1024",
-  "revision": 7,
+  "cpu": "3072",
+  "revision": 10,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
