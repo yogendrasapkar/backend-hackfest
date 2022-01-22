@@ -15,7 +15,7 @@
       "resourceRequirements": [
         {
           "type": "GPU",
-          "value": "1"
+          "value": "3"
         }
       ],
       "ulimits": null,
@@ -24,11 +24,11 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 1024,
+      "memory": 5000,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:cf35502f166d1976205a14482fdc3307f8fd237f",
+      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:9a9d70421b57476635eb70447fdb3fe0be4ef3b8",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -49,13 +49,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "2048",
+  "memory": "5120",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:16",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:19",
   "family": "inrecord-groupd",
   "requiresAttributes": [
     {
@@ -71,8 +71,8 @@
   ],
   "networkMode": "bridge",
   "runtimePlatform": null,
-  "cpu": "4096",
-  "revision": 16,
+  "cpu": "3072",
+  "revision": 19,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
