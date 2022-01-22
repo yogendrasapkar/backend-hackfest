@@ -10,9 +10,14 @@
       "portMappings": [],
       "command": null,
       "linuxParameters": null,
-      "cpu": 0,
+      "cpu": 2048,
       "environment": [],
-      "resourceRequirements": null,
+      "resourceRequirements": [
+        {
+          "type": "GPU",
+          "value": "1"
+        }
+      ],
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
@@ -23,7 +28,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:2c6839a5043e25813656db34993677e851ac11ab",
+      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:cf35502f166d1976205a14482fdc3307f8fd237f",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,7 +55,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:13",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:16",
   "family": "inrecord-groupd",
   "requiresAttributes": [
     {
@@ -64,13 +69,13 @@
   "requiresCompatibilities": [
     "EC2"
   ],
-  "networkMode": null,
+  "networkMode": "bridge",
   "runtimePlatform": null,
-  "cpu": "3072",
-  "revision": 13,
+  "cpu": "4096",
+  "revision": 16,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
   "volumes": []
 }
- 
+
