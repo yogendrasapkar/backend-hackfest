@@ -19,7 +19,7 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 5000,
+      "memory": 1024,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
@@ -44,13 +44,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "5120",
+  "memory": "2048",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:10",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:13",
   "family": "inrecord-groupd",
   "requiresAttributes": [
     {
@@ -67,7 +67,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "3072",
-  "revision": 10,
+  "revision": 13,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
