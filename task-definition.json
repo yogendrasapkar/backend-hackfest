@@ -7,10 +7,16 @@
       "environmentFiles": null,
       "logConfiguration": null,
       "entryPoint": null,
-      "portMappings": [],
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "containerPort": 8000
+        }
+      ],
       "command": null,
       "linuxParameters": null,
-      "cpu": 2048,
+      "cpu": 4096,
       "environment": [],
       "resourceRequirements": [
         {
@@ -24,11 +30,11 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 5000,
+      "memory": null,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:9a9d70421b57476635eb70447fdb3fe0be4ef3b8",
+      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:ca9707a472a64fe7192f1296ccb3340720222d4c",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -49,13 +55,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "5120",
+  "memory": "4096",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:19",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd:21",
   "family": "inrecord-groupd",
   "requiresAttributes": [
     {
@@ -71,11 +77,10 @@
   ],
   "networkMode": "bridge",
   "runtimePlatform": null,
-  "cpu": "3072",
-  "revision": 19,
+  "cpu": "5120",
+  "revision": 21,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
   "volumes": []
 }
-
