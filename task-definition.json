@@ -1,5 +1,4 @@
-
-   {
+{
   "ipcMode": null,
   "executionRoleArn": "arn:aws:iam::052250720528:role/ecsTaskExecutionRole",
   "containerDefinitions": [
@@ -32,7 +31,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:latest",
+      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:4015768178371032c89afe37733213df005413eb",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -59,7 +58,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/task-inrecord:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/task-inrecord:4",
   "family": "task-inrecord",
   "requiresAttributes": [
     {
@@ -118,7 +117,7 @@
   "networkMode": "awsvpc",
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 1,
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
