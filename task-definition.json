@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:django_project_image",
+      "image": "052250720528.dkr.ecr.us-east-1.amazonaws.com/aws-cd-gd:23400517fc4489d96e487a85bf86288dc76d9402",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,13 +50,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "2048",
+  "memory": "500",
   "taskRoleArn": "arn:aws:iam::052250720528:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd1:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:052250720528:task-definition/inrecord-groupd1:4",
   "family": "inrecord-groupd1",
   "requiresAttributes": [
     {
@@ -85,7 +85,7 @@
   "networkMode": "bridge",
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 1,
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
